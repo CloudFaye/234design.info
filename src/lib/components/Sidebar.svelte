@@ -1,39 +1,89 @@
 <script lang='ts'>
-	import SidebarFooter from "./SidebarFooter.svelte";
-import Svg from "./Svg.svelte";
+let containerElement: HTMLDivElement
+let menuOpen = false;
+
+function toggleMenu (){
+    menuOpen = !menuOpen
+}
+
+function handleOutsideClick(event: MouseEvent){
+    if ( containerElement && !containerElement.contains(event.target as Node)) {
+        menuOpen = false;
+    }
+}
+
 
 
 
 </script>
 
-
-<div class="fixed w-[300px] p-6 h-screen left-0 top-0 bg-[#1e1e1e] text-white border-r-2 justify-between flex flex-col  border-r-neutral-500 z-10  ">
-
-
- <h1 class=' text-3xl font-thin'>234design <strong>.info</strong></h1>
+<svelte:window on:click={handleOutsideClick} />
 
 
-<div class="flex flex-col ">
-    <p>By Service</p>
-    <p>By Category</p>
-    <p>Apply</p>
-    <p>Publish</p>
-    <p>Search</p>
-</div>
-
-
-<!-- briefly about 234design.inf0-->
-<div class="">
-    <div class=' mb-4'>
-        <h2 class=' mt-10 text-balance text-[1.1rem] '>List of design professionals from lagos and ibadan, Nigeria</h2>
+<div 
+bind:this={containerElement}
+class:expanded={menuOpen}
+ class="sidebar transition-all duration-300 ease-in-out fixed  hidden w-[32px]  h-screen right-0 top-0 bg-[#1e1e1e] text-white border-l-2   border-l-neutral-500 z-10  ">
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+   
+    <p class:hidden={menuOpen} on:click={toggleMenu} >MENU</p>
     
-        <p class=' mt-2 font-light text-neutral-400  text-balance text-[0.9rem] '>234design.info collects 470 freelancers, studios, and junior designers, listed based on the professional 
-            categories and the services offered. No search engine algorithms, our tool lists everything democratically in alphabetical order.
-        </p>
-        
+
+    {#if menuOpen}
+    <div class="menu-slide  p-4  shadow-md">
+      <ul>
+        <li><a href="/">By Category</a></li>
+        <li><a href="/">By Services</a></li>
+        <!-- svelte-ignore a11y_consider_explicit_label -->
+        <li><a href="/apply">Apply</a></li>
+      </ul>
     </div>
-    <!--sidebar footer-->
-    <SidebarFooter />
+  {/if}
 </div>
 
-</div>
+
+<style>
+
+
+    @media (min-width: 1000px) {
+        .sidebar{
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        transition: width 0.3s ease-in;
+        }
+       
+    }
+
+p {
+    padding: 16px;
+    cursor: pointer;
+    width: fit-content;
+    
+}
+
+.sidebar {
+    width: auto;
+    transition: width 0.8s ease-in;
+  }
+
+  .expanded {
+    width: 30vw;
+    transition: width 0.8s ease-in;
+  }
+
+  .menu-slide {
+    right: 0;
+    top: 0;
+    
+  }
+
+ li {
+    cursor: pointer;
+ }
+
+
+</style>
