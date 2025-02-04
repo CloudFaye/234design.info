@@ -53,7 +53,7 @@ class:expanded={menuOpen}
         flex-direction: column;
         align-items: start;
         justify-content: start;
-        transition: width 0.3s ease-in;
+        transition: display 0.3s ease-in;
         }
        
     }
@@ -67,12 +67,12 @@ p {
 
 .sidebar {
     width: auto;
-    transition: width 0.8s ease-in;
+    transition: display 0.8s ease-in;
   }
 
   .expanded {
     width: 30vw;
-    transition: width 0.8s ease-in;
+    transition: display 0.8s ease-in;
   }
 
   .menu-slide {

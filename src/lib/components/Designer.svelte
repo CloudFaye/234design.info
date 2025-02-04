@@ -21,7 +21,8 @@
         <div class='ext leading-[8px] text-[#9D9D9D]'>... <ArrowUpRight class='size-4 stroke-[#9D9D9D]' />  </div>
     </div>
     <div class='details'>
-        <p class=' font-sans text-[14px] text-[#9D9D9D]'> {category} {services}</p>
+        <p class='font-mono  text-[12px] font-medium tracking-wider uppercase text-[#c8ce2f] mb-2'> {category}</p>
+        <p class=' font-sans text-[14px] text-[#9D9D9D]'>[ {services} ]</p>
     </div>
 
 </div>
@@ -47,6 +48,7 @@ flex-direction: row;
 justify-content: space-between;
 width: 100%;
 align-items: center;
+margin-bottom: 2px;
 }
 
 

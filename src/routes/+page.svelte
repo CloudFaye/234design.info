@@ -6,7 +6,7 @@ import Designer from "$lib/components/Designer.svelte";
 	import type { PageData } from "./$types";
 
     const designers = data.allDesigners
-    const category = designers[40]?.category || 'All designers'
+    const category = designers[40]?.category || 'ALL 234-KREATORS '
 
 
 
@@ -19,7 +19,7 @@ import Designer from "$lib/components/Designer.svelte";
     
      <div class='list'> 
         {#each designers as designer}
-            <Designer name={designer.name} category={designer.category} services={designer.services} />
+            <Designer name={designer.name}  category={designer.category}  services={designer.services} />
         {/each}
     </div>
     
