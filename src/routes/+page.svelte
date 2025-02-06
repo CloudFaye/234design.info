@@ -6,7 +6,7 @@ import Designer from "$lib/components/Designer.svelte";
 	import type { PageData } from "./$types";
 
     const designers = data.allDesigners
-    const category = designers[40]?.category || 'ALL 234-KREATORS '
+    const category = designers[40]?.category || '234-KREATORS '
 
 
 
@@ -36,7 +36,7 @@ import Designer from "$lib/components/Designer.svelte";
 .list {
     grid-column: 4 / -1;
     column-width: var(--column);
-    column-gap: 0;
+    column-gap: 0px;
     will-change: transform;
 }
 

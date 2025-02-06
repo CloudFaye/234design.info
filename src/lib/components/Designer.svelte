@@ -21,7 +21,7 @@
         <div class='ext leading-[8px] text-[#9D9D9D]'>... <ArrowUpRight class='size-4 stroke-[#9D9D9D]' />  </div>
     </div>
     <div class='details'>
-        <p class='font-mono  text-[12px] font-medium tracking-wider uppercase text-[#c8ce2f] mb-2'> {category}</p>
+        <p class='font-mono  text-[12px] font-medium tracking-wider uppercase text-[#c8ce2f]'> {category}</p>
         <p class=' font-sans text-[14px] text-[#9D9D9D]'>[ {services} ]</p>
     </div>
 
@@ -40,6 +40,7 @@
     break-inside: avoid;
     vertical-align: top;
     padding-left: 4px;
+    margin-bottom: 14px;
 }
 
 .name {

@@ -23,11 +23,11 @@ function handleOutsideClick(event: MouseEvent){
 <div 
 bind:this={containerElement}
 class:expanded={menuOpen}
- class="sidebar transition-all duration-300 ease-in-out fixed  hidden w-[32px]  h-screen right-0 top-0 bg-[#1e1e1e] text-white border-l-2   border-l-neutral-500 z-10  ">
+ class="sidebar transition-all duration-300 ease-in-out absolute hidden w-[32px]  h-screen right-0 top-0 bg-[#1e1e1e] text-white border-l-2   border-l-neutral-500 z-10  ">
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-   
     <p class:hidden={menuOpen} on:click={toggleMenu} >MENU</p>
+    
     
 
     {#if menuOpen}
