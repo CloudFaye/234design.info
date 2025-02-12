@@ -67,7 +67,9 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)"
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans]
+				sans: [...fontFamily.sans],
+				'roboto': ['Roboto-Mono', 'monospace'],
+				'larken': ['Larken', 'sans-serif'],
 			},
 			keyframes: {
 				"accordion-down": {

@@ -1,0 +1,11 @@
+{
+	"src": {
+		"scope": "typescript,javascript",
+		"prefix": "src",
+		"body": [
+			"<script lang=\"ts\">",
+			"</script>"
+		],
+		"description": "script w ts"
+	}
+}

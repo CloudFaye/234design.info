@@ -3,101 +3,65 @@ import { z } from "zod";
 import { fail, message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { text } from "@sveltejs/kit";
-
-
-const level = ['JUNIOR', 'FREELANCER', 'STUDIO', 'AGENCY', 'SENIOR SOLO', 'INDIE'] as const;
-
-const field = ['ANIMATION','ARCHITECTURE', 'ART DIRECTION', 'CREATIVE CODING', 'COPYWRITING', 
-    'EDITORIAL DESIGN', 'GRAPHIC DESIGN', 'ILLUSTRATION', 'INTERACTION DESIGN', 'INTERIOR DESIGN', 'PHOTOGRAPHY', 'PRODUCT DESIGN',
-    'SOCIAL MEDIA', 'SOUND DESIGN', 'TYPE DESIGN', 'UI/UX DESIGN', 'VIDEOMAKING', 'WEB DESIGN' ] as const;
-
-const timezone = ['LAGOS', 'ABUJA', 'IBADAN', 'PORT HARCOURT', 'AKWA IBOM', 'NOMAD'] as const;
-
-const services = [
-    '3D Art',
-    '3D Model/Render',
-    '3D Motion',
-    'Advertising',
-    'App Design',
-    'AR/VR',
-    'Back-end',
-    'Books',
-    'Brand Identity',
-    'Campaigns',
-    'Communication Strategy',
-    'Data Visualization',
-    'Digital Design',
-    'E-Commerce',
-    'Event Planning',
-    'Exhibition Design',
-    'Front-end',
-    'Furniture Design',
-    'Information Design',
-    'Interior Design',
-    'Logos and Trademarks',
-    'Magazine',
-    'Marketing',
-    'Motion Graphics',
-    'Packaging',
-    'Retail Design',
-    'Retouching',
-    'Typefaces',
-    'Wayfinding',
-    'Websites'
-    ] as const;
-
-const formSchema = z.object({
-    level: z.array(z.enum(level, {message: 'choose at least one'})), 
-    field: z.array(z.enum(field, {message: 'choose at least one'})), 
-    timezone: z.array(z.enum(timezone, {message: 'choose one'})).optional(),
-    services: z.array(z.enum(services, {message: 'choose one'})).optional(), 
-    name: z.string().min(3, {message: ''}),
-    others: z.string().min(3, {message: 'Is that a name ?'}).optional(),
-    email: z.string().email(),
-    portfolio: z.string().url().min(5, {message: ''})
-});
-
+import { field, formSchema, level, services, timezone } from '$lib/formTypes'
 
 
 
 
 
 export const load: PageServerLoad = async () => {
-    const form = await superValidate({ services: [], timezone: [], level: [], field: [] }, zod(formSchema));
+    const form = await superValidate(zod(formSchema));
 
+    console.log(form.errors)
 
-    return { form, level, services, field, timezone }
+    return { form, level, field, timezone, services}
 };
 
 export const actions: Actions = {
     default: async ({ request }) => {
         const form = await superValidate(request, zod(formSchema));
 
-        console.log(form);
-       
+         const newForm = await superValidate(zod(formSchema));
+        
 
-        if (!form.valid){
-            return fail(400, {form})
+          const formattedDate = new Date().toLocaleString('en-US', {
+            dateStyle: 'medium',
+            timeStyle: 'medium',
+            timeZone: 'Africa/Lagos'  
+        });
+
+        // Log the form data
+        console.log('Form submission attempt:', {
+            timestamp: formattedDate,
+            data: form.data,
+            valid: form.valid,
+        });
+
+        // Check for empty arrays in required fields
+     
+
+        // Additional validation for required fields
+        if (!form.data.name || !form.data.email || !form.data.portfolio) {
+            return fail(400, { 
+                form,
+                message: 'Please fill in all required fields'
+            });
         }
 
-       // Process 
-       // form submission here
+        if (!form.valid) {
+            console.log('Form validation failed:', form.errors);
+            return fail(400, { form });
+        }
 
-        const newForm = await superValidate(zod(formSchema));
+        // Log successful submission
+        console.log('Successful form submission:', {
+            timestamp: new Date().toISOString(),
+            data: form.data
+        });
 
-        return message (
-            form,
-            {message: 'success', text: 'application submited'},
-            
-        )
-
+        return message(form, {
+            type: 'success',
+            text: 'Application submitted successfully!'
+        });
     }
-
-
 };
-
-
-export const _handleSubmit = (event: Event) => {
-    event.preventDefault();
-    console.log('Form submitted:', formSchema);
-}
