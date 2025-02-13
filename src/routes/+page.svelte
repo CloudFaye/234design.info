@@ -62,7 +62,7 @@
 </script>
 
 
-<div class="home">
+<div class="home text-zinc-300">
 <div class="home-inner  grid grid-cols-1 gap-8 relative md:grid-cols-6 lg:grid-cols-6    ">
 
      <div class=" p-20 h-full col-span-3">
@@ -71,7 +71,7 @@
        </div>
      </div>
 
-    <div  class="h-full col-span-3 overflow-y-scroll text-white pr-10 mt-[64px] ">
+    <div  class="h-full col-span-3 overflow-y-scroll  pr-10 mt-[64px] ">
     
      
      
