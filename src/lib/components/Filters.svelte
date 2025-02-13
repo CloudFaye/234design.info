@@ -1,6 +1,6 @@
 
 <script lang='ts'>
-    const  {data, allDesigners, designField,  designServices, tooling, filteredCount = 0, ...props } = $props<{ data: PageData, filteredCount?: number }>();
+    const  {data, allDesigners, designField,  designServices, tooling, className='', filteredCount = 0, ...props } = $props<{ data: PageData, filteredCount?: number }>();
 	import * as DropdownMenu  from "./ui/dropdown-menu";
     import { buttonVariants } from "$lib/components/ui/button/index.js";
 	import { ChevronDown } from "lucide-svelte";
@@ -25,14 +25,14 @@
 </script>
 
 
-<div  class="font-roboto uppercase text-[13px] w-full border-b border-neutral-800 flex justify-between items-center  py-4 ">
-    <p> Showing {filteredCount}  CREATIVES </p>
+<div  class="font-roboto uppercase text-[13px] absolute lg:relative bottom-0 w-full flex flex-col justify-center items-start py-4 ">
+    <p class="w-full"> Showing {filteredCount}  CREATIVES </p>
     
- <DropdownMenu.Root>
+ <DropdownMenu.Root >
   <DropdownMenu.Trigger class={buttonVariants({ variant: "outline", size: "sm" })}>
     All Creatives <ChevronDown class='size-3' /> </DropdownMenu.Trigger
   >
-  <DropdownMenu.Content class="w-56">
+  <DropdownMenu.Content class="w-full">
     <DropdownMenu.Group>
       <DropdownMenu.GroupHeading>Looking for </DropdownMenu.GroupHeading>
       <DropdownMenu.Separator />
