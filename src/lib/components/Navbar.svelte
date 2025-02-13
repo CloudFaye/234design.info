@@ -12,7 +12,7 @@
     },
     {
     name: 'POST UP',
-    href: '/postup'
+    href: '/apply'
     }];
 
  export let logo = [{

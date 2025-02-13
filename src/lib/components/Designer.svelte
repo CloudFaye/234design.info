@@ -4,7 +4,7 @@
     import type { PageData , Actions } from "/Users/mac/Desktop/234design.info/.svelte-kit/types/src/routes/$types";
     let {name, category, portfolio, level,  ...others } = $props();
     import * as  Card from '$lib/components/ui/card';
-	import { Cherry } from "lucide-svelte";
+	import { Cherry, Dot } from "lucide-svelte";
     
 
 
@@ -14,16 +14,16 @@
 <div class=" font-roboto uppercase text-[14px] flex flex-row justify-betweeen items-center py-4 w-full h-fit">
 
 <div class='flex items-center justify-start text-[14px] w-full'>
-  <Cherry class='size-[15px] mr-2 ' />  
+  <Dot class='size-[15px] mr-2 font-semibold ' />  
   {name}
 </div>
 
-<div class='flex text-[12px] text-neutral-600  w-full'><p>
+<div class='flex text-[13px] text-neutral-600  w-full'><p>
   {category}
 </p></div>
 
 <div class='flex items-center justify-end w-full'>
-<a href={portfolio} class='text-neutral-600 text-[12px]  '>freelance{level}</a>
+<a href={portfolio} class='text-neutral-600 text-[13px]  '>lvl{level}</a>
 <ArrowUpRight class='size-[13px] ' />
 </div>
 

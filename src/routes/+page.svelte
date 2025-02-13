@@ -55,7 +55,7 @@
     
 </script>
 
-<div class="min-h-screen gap-5 p-4 mx-0 mt-[80px]  lg:gap-8 lg:p-0 lg:min-h-svh  flex flex-col-reverse items-end justify-start  ">
+<div class=" gap-5 p-4 mx-0 mt-[80px]  lg:gap-8 lg:p-0   flex flex-row items-start justify-start  ">
 <!--  <fieldset class='p-5 rounded-lg text-balance border border-slate-600 fixed h-screen left-4 top-4 z-10 bg-slate-800 w-[20%] '>
     <p class='text-lg mb-4 text-white font-semibold'> Sort by Designer field</p>
     {#if availableServices && availableServices.length > 0}
@@ -91,9 +91,14 @@
             />
         {/each}
 </div>  -->
-<div class="w-[48vw] h-full lg:fixed  left-[1rem] top-[80px] flex items-center justify-center p-10 text-white">
+<div class="w-[48vw] h-full hidden lg:flex  left-[1rem] top-[80px]  items-center justify-center p-10  text-white">
     <div class=" bg-purple-950 w-full h-full items-center justify-center flex flex-col">
         <h1> djjdjdjdjdjd</h1>
+        <img src="/favicon.png" alt="">
+        <img src="/favicon.png" alt="">
+        <img src="/favicon.png" alt="">
+        <img src="/favicon.png" alt="">
+        <img src="/favicon.png" alt="">
        </div>
 </div>
 <div class="w-full lg:w-[50vw] h-full flex flex-col items-start justify-start text-white">
@@ -126,6 +131,4 @@ body {
     border-radius: 12px;
     color: black;
   }
-
-
 </style>
