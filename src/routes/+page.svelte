@@ -72,11 +72,11 @@
      </div>
 
     <div  class="h-full col-span-3 overflow-y-scroll text-white pr-10 mt-[64px] ">
-     <Filters filteredCount={filteredResult.length} data={data} on:filterUpdate={handleFilterUpdate} />
+    
      
      
       {#each filteredResult as designer}
-     <div class="  ">
+     
      <Designer 
                 name={designer.name} 
                 category={designer.category}
@@ -86,7 +86,7 @@
                 className={designerClasses}
             />
  
-           </div>   
+          
            
      {/each}
    

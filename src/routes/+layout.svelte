@@ -1,12 +1,13 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import { cn } from '$lib/utils';
 	import '../app.css';
 	let { children } = $props();
 </script>
 
 <main class=' p-4 bg-[#080808] min-h-screen'>
-	<Navbar />	
+	<Navbar  />	
 	{@render children()}
 </main>
 
