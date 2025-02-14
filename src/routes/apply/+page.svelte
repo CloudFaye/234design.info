@@ -59,7 +59,7 @@ input[type="radio"]:checked {
 	column-width: var(--column);
 	column-gap: 40px;
 	will-change: transform;
-	padding: 32px 30px 32px 48px;
+	padding: 12px
 	
 }
 
@@ -70,9 +70,9 @@ input[type="checkbox"]:checked {
 </style>
 
 
-<div class=" w-full pl-[48px] pt-[2%] justify-start">
+<div class=" w-full  pt-[2%] justify-start">
 	<h1 class='text-white text-[1.3rem] font-semibold '>APPLY</h1>
-	<p class='w-[20%] '>Welcome to the application form for 234design.info.
+	<p class=' '>Welcome to the application form for 234design.info.
 		All the fields marked with * are required.</p>
 
 </div>
@@ -88,11 +88,11 @@ input[type="checkbox"]:checked {
 		{#if $errors.name}<span class='text-red-500 text-sm'>{$errors.name}</span>{/if}
 
 		
-		<p class='mt-5 mb-4'>Add the website of your activity: if you don't have one, you can write the link to your online portfolio (a public pdf file or your Behance Dribbble, Github, etc., account).</p>
+		<p class='mt-5 text-sm mb-4'>Add the website of your activity: if you don't have one, you can write the link to your online portfolio (a public pdf file or your Behance Dribbble, Github, etc., account).</p>
 		<input bind:value={$form.portfolio} name='portfolio' type="text" placeholder="Website/Portfolio/.PDF link" class='p-2 border text-white mb-4  border-neutral-600 bg-transparent w-full'>
 		{#if $errors.portfolio}<span class='text-red-500 text-sm' >{$errors.portfolio}</span>{/if}
 
-		<p>Insert your email address. It won't appear in the list we will use it only to get in touch with you.</p>
+		<p class='text-sm'>Insert your email address. It won't appear in the list we will use it only to get in touch with you.</p>
 		<input bind:value={$form.email} name='email' type="email" placeholder="Email" class='p-2 border text-white mb-4  border-neutral-600 bg-transparent w-full'>
 		{#if $errors.email}<span class='text-red-500 text-sm' >{$errors.email}</span>{/if}
 		
@@ -102,7 +102,7 @@ input[type="checkbox"]:checked {
 	<div class="field ">
 		<label class=' text-xl font-semibold ' for="field">Which is your design field ?*</label>
 		<p class='text-neutral-400 text-sm my-2'>Choose one or more categories that represent you. If your specialization field is not present, please add it in the information box.</p>
-		<fieldset>
+		<fieldset class='mb-4'>
 			{#if data.field}
 			{#each data.field as fields }
 			  <label class='flex gap-4'>
@@ -118,7 +118,7 @@ input[type="checkbox"]:checked {
 	<div class="services  ">
 		<label class=' text-xl font-semibold ' for="services">What do you offer?</label>
 		<p class='text-neutral-400 text-sm mb-2'>Choose one or more services you can offer to your clients. If you provide a service that is not present in the list, please write it in the information box</p>
-		<fieldset>
+		<fieldset class='mb-4'>
 			{#if data.services}
 			{#each data.services as service }
 			  <label class='flex gap-4'>
@@ -135,7 +135,7 @@ input[type="checkbox"]:checked {
 	<div class="timezone">
 		<label class=' text-xl font-semibold ' for="timezone">What's your Timezone?</label>
 		<p class='text-neutral-400 text-sm mb-2'>Select the province where your practice is based or where you work from</p>
-		<fieldset>
+		<fieldset class='mb-4'>
 			{#each data.timezone  as timezone }
 			  <label class='flex gap-4'>
 				<input bind:group={$form.timezone} {...constraints}  class='bg-transparent  size-4 rounded-full  border-[1px] border-neutral-600' type="checkbox" name="timezone" value={timezone}   />
